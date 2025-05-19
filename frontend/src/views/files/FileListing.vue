@@ -13,6 +13,12 @@
       <template #actions>
         <template v-if="!isMobile">
           <action
+            v-if="headerButtons.tag"
+            icon="tag"
+            :label="t('buttons.tag')"
+            show="tag"
+          />          
+          <action
             v-if="headerButtons.share"
             icon="share"
             :label="t('buttons.share')"
@@ -412,6 +418,7 @@ const headerButtons = computed(() => {
     share: fileStore.selectedCount === 1 && authStore.user?.perm.share,
     move: fileStore.selectedCount > 0 && authStore.user?.perm.rename,
     copy: fileStore.selectedCount > 0 && authStore.user?.perm.create,
+    tag: fileStore.selectedCount == 1 && authStore.user?.perm.rename,
   };
 });
 

@@ -6,8 +6,10 @@ rice-box.go
 /filebrowser
 /filebrowser.exe
 /dist
+/test
+*.mp3
 
-.DS_Store
+
 node_modules
 
 # local env files
