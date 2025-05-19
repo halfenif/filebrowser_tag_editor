@@ -5,3 +5,6 @@
 
 - [bliss](https://www.blisshq.com/buy-fixes.html)는 좋아 보이는데 상용인거 같고
 - [onetagger](https://onetagger.github.io/#download)는 그럴듯 해 보이는데 사용중인 Manjaro에서 build error를 보이고 있어, 다운로드 했더니 Desktop App이다. 나는 서버 설치용이 필요하다.
+
+
+go build -tags dev
