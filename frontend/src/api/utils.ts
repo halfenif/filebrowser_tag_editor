@@ -26,6 +26,13 @@ export async function fetchURL(
   const { headers, ...rest } = opts;
   let res;
   try {
+
+    // console.log("frontend/src/api/utils.ts/baseURL", `${baseURL}`);
+    // console.log("frontend/src/api/utils.ts/url", `${url}`);
+
+    
+    console.log(`[`,`${baseURL}${url}`,`]`);
+
     res = await fetch(`${baseURL}${url}`, {
       headers: {
         "X-Auth": authStore.jwt,

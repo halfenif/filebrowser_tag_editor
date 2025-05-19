@@ -1,10 +1,13 @@
 module github.com/filebrowser/filebrowser/v2
 
-go 1.23
+go 1.23.0
+
+toolchain go1.24.3
 
 require (
 	github.com/asdine/storm/v3 v3.2.1
 	github.com/asticode/go-astisub v0.26.2
+	github.com/bogem/id3v2 v1.2.0
 	github.com/disintegration/imaging v1.6.2
 	github.com/dsoprea/go-exif/v3 v3.0.1
 	github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568
@@ -26,7 +29,7 @@ require (
 	go.etcd.io/bbolt v1.3.11
 	golang.org/x/crypto v0.31.0
 	golang.org/x/image v0.19.0
-	golang.org/x/text v0.21.0
+	golang.org/x/text v0.25.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gopkg.in/yaml.v2 v2.4.0
 )

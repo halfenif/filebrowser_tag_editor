@@ -1,7 +1,7 @@
 <template>
   <div class="card floating">
     <div class="card-title">
-      <h2>{{ $t("prompts.rename") }}</h2>
+      <h2>{{ $t("prompts.tag") }}</h2>
     </div>
 
     <div class="card-content">
@@ -31,10 +31,10 @@
         @click="submit"
         class="button button--flat"
         type="submit"
-        :aria-label="$t('buttons.rename')"
-        :title="$t('buttons.rename')"
+        :aria-label="$t('buttons.tag')"
+        :title="$t('buttons.tag')"
       >
-        {{ $t("buttons.rename") }}
+        {{ $t("buttons.tag") }}
       </button>
     </div>
   </div>
@@ -45,7 +45,7 @@ import { mapActions, mapState, mapWritableState } from "pinia";
 import { useFileStore } from "@/stores/file";
 import { useLayoutStore } from "@/stores/layout";
 import url from "@/utils/url";
-import { files as api } from "@/api";
+import { tag as api } from "@/api";
 
 export default {
   name: "tag",
@@ -56,6 +56,7 @@ export default {
   },
   created() {
     this.name = this.oldName();
+    this.getTag();
   },
   inject: ["$showError"],
   computed: {
@@ -69,6 +70,22 @@ export default {
   },
   methods: {
     ...mapActions(useLayoutStore, ["closeHovers"]),
+    async getTag() {
+      try {
+
+        let oldLink = "";
+
+        if (!this.isListing) {
+          oldLink = this.req.url;
+        } else {
+          oldLink = this.req.items[this.selected[0]].url;
+        }        
+        const tag = await api.getTag(oldLink);
+        // this.name = tag.name;
+      } catch (e) {
+        this.$showError(e);
+      }
+    },
     cancel: function () {
       this.closeHovers();
     },
